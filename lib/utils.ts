@@ -18,3 +18,14 @@ export function uniqBy<T, K extends keyof any>(
     return seen.has(k) ? false : seen.add(k)
   })
 }
+
+export function debounce<T extends (...args: any[]) => void>(
+  func: T,
+  timeout = 300
+): (...args: Parameters<T>) => void {
+  let timer: NodeJS.Timeout | null
+  return (...args: Parameters<T>) => {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => func(...args), timeout)
+  }
+}

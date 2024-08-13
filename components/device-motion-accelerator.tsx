@@ -3,15 +3,16 @@
 // sensor-js.xyz/webs-sixth-sense-ccs18.pdf
 // inspired by https://github.com/alexgibson/shake.js/blob/master/shake.js
 
-import { cn } from '@/lib/utils'
+import { cn, debounce } from '@/lib/utils'
 import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 
 // what the maximum's acceleration level of a phone?
 // it depends on the device model and the holder's strength
+// needs more testing on more devices
 const is_ios = /iP(ad|od|hone)/i.test(window.navigator.userAgent)
 const is_safari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)
-const MAX_THRESOLD = is_ios && is_safari ? 1600 : 70
+const MAX_THRESOLD = is_ios && is_safari ? 200 : 70
 
 function colorLevel(thresold: number): string {
   const options = [
@@ -24,10 +25,9 @@ function colorLevel(thresold: number): string {
     'indigo',
     'violet',
     'purple',
-    'fuschia',
+    'fuchsia',
     'pink',
-    'rose',
-    'rouge'
+    'rose'
   ]
   const len = options.length
   for (let i = len; i--; ) {
@@ -62,8 +62,7 @@ export function DeviceMotionAccelerator() {
     (ev: DeviceMotionEvent) => {
       const delta = Math.floor(Math.abs(accel - (ev.acceleration?.z ?? 0)))
       if (delta > max) setMax(delta)
-      // TODO debounce this would limit the number of re-renders?
-      setAccel(delta)
+      debounce(setAccel)(delta)
     },
     [max, accel]
   )
@@ -113,6 +112,7 @@ export function DeviceMotionAccelerator() {
         {max}/{MAX_THRESOLD} - {accel} - {colorLevel(accel)}
       </code>
       <div className="flex mt-10">
+        <div className="bg-green-200 m-1 p-1 rounded-full hidden" />
         <div className="bg-emerald-200 m-1 p-1 rounded-full" />
         <div className="bg-teal-200 m-1 p-1 rounded-full" />
         <div className="bg-teal-200 m-1 p-1 rounded-full" />
@@ -122,10 +122,9 @@ export function DeviceMotionAccelerator() {
         <div className="bg-indigo-200 m-1 p-1 rounded-full" />
         <div className="bg-violet-200 m-1 p-1 rounded-full" />
         <div className="bg-purple-200 m-1 p-1 rounded-full" />
-        <div className="bg-fuschia-200 m-1 p-1 rounded-full" />
+        <div className="bg-fuchsia-200 m-1 p-1 rounded-full" />
         <div className="bg-pink-200 m-1 p-1 rounded-full" />
         <div className="bg-rose-200 m-1 p-1 rounded-full" />
-        <div className="bg-rouge-200 m-1 p-1 rounded-full" />
       </div>
     </div>
   )

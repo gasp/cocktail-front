@@ -20,6 +20,7 @@ export function DeviceMotion({ onClick, disabled }: DeviceMotionProps) {
   const [hasMotion, setHasMotion] = useState(false)
   const [hasMotionAuthorized, setHasMotionAuthorized] = useState(false)
   const [open, setOpen] = useState(false)
+  const [animate, setAnimate] = useState(true)
 
   useEffect(() => {
     if (window.DeviceMotionEvent) setHasMotion(true)
@@ -36,11 +37,13 @@ export function DeviceMotion({ onClick, disabled }: DeviceMotionProps) {
       }
     }
     setOpen(true)
+    setAnimate(false)
     onClick()
   }, [onClick])
 
   const handleSimpleClick = useCallback(() => {
     setOpen(true)
+    setAnimate(false)
     onClick()
   }, [onClick])
 
@@ -50,7 +53,7 @@ export function DeviceMotion({ onClick, disabled }: DeviceMotionProps) {
         <DeviceMotionButton
           disabled={disabled}
           onClick={handleStart}
-          animate={true}
+          animate={animate}
         />
 
         <div className="text-xs">
