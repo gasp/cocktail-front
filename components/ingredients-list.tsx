@@ -29,7 +29,7 @@ export function IngredientsList({
           <IngredientPill
             key={ingredient.slug}
             ingredient={ingredient}
-            onClick={disabled ? console.log : handleSelect(ingredient)}
+            handleClick={disabled ? console.log : handleSelect(ingredient)}
             disabled={disabled}
           />
         )

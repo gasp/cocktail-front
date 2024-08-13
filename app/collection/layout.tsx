@@ -1,10 +1,10 @@
-interface CocktailLayoutProps {
+interface CollectionLayoutProps {
   children: React.ReactNode
 }
 
-export default async function CocktailLayout({
+export default async function CollectionLayout({
   children
-}: CocktailLayoutProps) {
+}: CollectionLayoutProps) {
   return (
     <div className="relative flex flex-col h-[calc(100vh_-_theme(spacing.16))]">
       {children}

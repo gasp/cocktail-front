@@ -24,7 +24,9 @@ export function SidebarContent() {
               </li>
             ))}
           </ul>
-          <div>TODO: show my cocktail collection</div>
+          <Link className="font-semibold text-primary my-5 " href="/collection">
+            Full cocktail collection
+          </Link>
         </section>
       )}
       {!!ingredients.length && (
