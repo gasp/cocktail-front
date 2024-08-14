@@ -4,18 +4,21 @@ import Link from 'next/link'
 import { SocketDebug } from './socket-debug'
 import { ThemeToggle } from './theme-toggle'
 
-export function SidebarContent() {
+export function SidebarContent({ close }: { close: () => void }) {
   const [cocktails] = useLocalStorage<Cocktail[]>('cocktails', [])
   const [ingredients] = useLocalStorage<LocalIngredient[]>('ingredients', [])
   return (
-    <div className="p-6">
+    <div className="px-6">
       {!!cocktails.length && (
         <section className="py-2">
-          <h2 className="text-lg my-2">10 Most recent cocktails</h2>
+          <h2 className="text-lg my-2 font-semibold">
+            10 Most recent cocktails
+          </h2>
           <ul className="list-disc ml-4">
             {cocktails.slice(0, 5).map(cocktail => (
               <li key={cocktail.slug}>
                 <Link
+                  onClick={() => close()}
                   href={`/cocktail/${cocktail.slug}`}
                   className="text-primary"
                 >
@@ -24,17 +27,23 @@ export function SidebarContent() {
               </li>
             ))}
           </ul>
-          <Link className="font-semibold text-primary my-5 " href="/collection">
+          <Link
+            onClick={() => close()}
+            className="block font-semibold text-primary my-2"
+            href="/collection"
+          >
             Full cocktail collection
           </Link>
         </section>
       )}
       {!!ingredients.length && (
         <section className="py-2">
-          <h2 className="text-lg my-2">10 Most used ingredients</h2>
+          <h2 className="text-lg my-2 font-semibold">
+            10 Most used ingredients
+          </h2>
           <ul className="list-disc ml-4">
             {ingredients
-              .sort((a, b) => a.score - b.score)
+              .sort((a, b) => b.score - a.score)
               .slice(0, 10)
               .map(ingredient => (
                 <li key={ingredient.slug}>{ingredient.name}</li>
@@ -44,7 +53,7 @@ export function SidebarContent() {
       )}
 
       <section className="py-2">
-        <h2 className="text-lg my-2">Tech stuff</h2>
+        <h2 className="text-lg my-2 font-semibold">Tech stuff</h2>
         <div>
           Toggle light/dark theme <ThemeToggle />
         </div>

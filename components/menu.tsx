@@ -22,7 +22,7 @@ export const Menu = () => {
       </motion.nav>
 
       <SidebarDesktop open={isOpen} onOpenChange={close}>
-        <SidebarContent />
+        <SidebarContent close={close} />
       </SidebarDesktop>
     </div>
   )

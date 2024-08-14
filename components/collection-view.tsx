@@ -23,7 +23,7 @@ export function CollectionView({}: CollectionViewProps) {
 
   useEffect(() => {
     const mainIngredients = localIngredients
-      .sort((a, b) => a.score - b.score)
+      .sort((a, b) => b.score - a.score)
       .slice(0, 10)
     setIngredients(mainIngredients)
   }, [localIngredients])
