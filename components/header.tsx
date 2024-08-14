@@ -28,6 +28,10 @@ export function Header() {
           <IconGitHub />
           <span className="hidden ml-2 md:flex">GitHub</span>
         </a>
+        {/*
+        This is a workaround to mitigate rendering of <Sheet>
+        TODO: replace with real implementation when the bug is fixed.
+        */}
         <React.Suspense fallback={<div className="flex-1 overflow-auto" />}>
           <Menu />
         </React.Suspense>

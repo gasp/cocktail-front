@@ -11,6 +11,7 @@ export function CollectionCocktail({ cocktail }: CollectionCocltailProps) {
       <div className="space-y-3">
         <div className="overflow-hidden rounded-md">
           <Image
+            priority={true}
             alt={cocktail.alt || ''}
             width="250"
             height="330"

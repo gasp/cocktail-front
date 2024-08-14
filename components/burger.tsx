@@ -20,7 +20,11 @@ export const Burger = ({
   toggle: () => void
   isOpen: boolean
 }) => (
-  <div style={{ width: 50 }} className="flex items-center justify-center">
+  <motion.div
+    animate={isOpen ? 'open' : 'closed'}
+    style={{ width: 50 }}
+    className="flex items-center justify-center"
+  >
     <motion.button
       onClick={toggle}
       className="rounded-full bg-white flex items-center justify-center pt-1"
@@ -58,5 +62,5 @@ export const Burger = ({
         />
       </svg>
     </motion.button>
-  </div>
+  </motion.div>
 )

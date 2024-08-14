@@ -1,5 +1,10 @@
 import { Sidebar } from '@/components/sidebar'
-import { Sheet, SheetContent } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle
+} from '@/components/ui/sheet'
 
 interface SidebarDesktopProps {
   children: React.ReactNode
@@ -18,6 +23,10 @@ export async function SidebarDesktop({
         side="left"
         className="inset-y-0 flex h-auto w-full sm:w-[400px] flex-col p-0"
       >
+        <SheetTitle className="px-6 pt-10"></SheetTitle>
+        <SheetDescription className="px-6">
+          Recent items and debug information
+        </SheetDescription>
         <Sidebar className="flex">{children}</Sidebar>
       </SheetContent>
     </Sheet>

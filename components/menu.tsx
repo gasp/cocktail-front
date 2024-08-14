@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { ErrorBoundary } from '@/components/error-boundary'
 import { useCallback, useState } from 'react'
 import { Burger } from './burger'
 import { SidebarContent } from './sidebar-content'
@@ -16,14 +16,14 @@ export const Menu = () => {
   }, [toggleOpen])
 
   return (
-    <div>
-      <motion.nav animate={isOpen ? 'open' : 'closed'}>
+    <ErrorBoundary fallback={<div>crashed 💀</div>}>
+      <nav>
         <Burger toggle={open} isOpen={isOpen} />
-      </motion.nav>
+      </nav>
 
       <SidebarDesktop open={isOpen} onOpenChange={close}>
         <SidebarContent close={close} />
       </SidebarDesktop>
-    </div>
+    </ErrorBoundary>
   )
 }
