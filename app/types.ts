@@ -1,6 +1,6 @@
 // TODO: move this to @/lib
 
-type HexColor = `#${string}`
+export type HexColor = `#${string}`
 
 export type Ingredient = {
   name: string
