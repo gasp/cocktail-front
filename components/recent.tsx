@@ -51,7 +51,7 @@ export function Recent({ recentCocktails }: RecentProps) {
       <div className="mx-auto sm:max-w-2xl sm:px-4 pt-5">
         <div className="mb-4 grid grid-cols-2 gap-2 px-4 sm:px-0">
           {FAKErecentCocktails.slice(0, 4).map((example, index) => (
-            <RecentCocktail cocktail={example} index={index} />
+            <RecentCocktail key={example.slug} cocktail={example} index={index} />
           ))}
         </div>
       </div>

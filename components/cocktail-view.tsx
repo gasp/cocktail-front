@@ -14,7 +14,7 @@ export const CocktailView = ({ cocktail }: CocktailViewProps) => {
 
   useEffect(() => {
     setCocktail(cocktail)
-  }, [cocktail])
+  }, [cocktail, setCocktail])
 
   return (
     <div className="mx-auto sm:max-w-2xl sm:px-4 p-6">
