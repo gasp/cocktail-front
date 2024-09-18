@@ -1,8 +1,7 @@
 'use client'
 
 import { CocktailSummary } from '@/app/types'
-import Link from 'next/link'
-
+import { RecentCocktail} from './recent-cocktail'
 export interface RecentProps {
   recentCocktails: CocktailSummary[]
 }
@@ -13,35 +12,35 @@ export function Recent({ recentCocktails }: RecentProps) {
     {
       name: 'Bloody Mary',
       ingredients: [
-        { name: 'Tomato juice', slug: 'tomato-juice', color: '#8E1E3A' },
-        { name: 'Vodka', slug: 'vodka', color: '#44A3FC' },
-        { name: 'Triple sec', slug: 'triple-sec', color: '#87CEEB' }
+        { name: 'Tomato juice', slug: 'tomato-juice', color: '#8E1E3A' as `#${string}` },
+        { name: 'Vodka', slug: 'vodka', color: '#44A3FC' as `#${string}` },
+        { name: 'Triple sec', slug: 'triple-sec', color: '#87CEEB' as `#${string}` }
       ],
       slug: 'bloody-mary'
     },
     {
       name: 'Golden Orchard',
       ingredients: [
-        { name: 'Gin', slug: 'gin', color: '#8BC34A' },
-        { name: 'Apple juice', slug: 'apple-juice', color: '#9DDE02' },
-        { name: 'Egg yolk', slug: 'egg-yolk', color: '#FFFFFF' },
-        { name: 'Lemon', slug: 'lemon', color: '#ADFF2F' }
+        { name: 'Gin', slug: 'gin', color: '#8BC34A' as `#${string}` },
+        { name: 'Apple juice', slug: 'apple-juice', color: '#9DDE02' as `#${string}` },
+        { name: 'Egg yolk', slug: 'egg-yolk', color: '#FFFFFF' as `#${string}` },
+        { name: 'Lemon', slug: 'lemon', color: '#ADFF2F' as `#${string}` }
       ],
       slug: 'golden-orchard'
     },
     {
       name: 'Citrus Breeze',
       ingredients: [
-        { name: 'Orange bitters', slug: 'orange-bitters', color: '#FFA07A' },
-        { name: 'White Rum', slug: 'white-rum', color: '#fefefe' }
+        { name: 'Orange bitters', slug: 'orange-bitters', color: '#FFA07A' as `#${string}` },
+        { name: 'White Rum', slug: 'white-rum', color: '#fefefe' as `#${string}` }
       ],
       slug: 'citrus-breeze'
     },
     {
       name: 'Mojito',
       ingredients: [
-        { name: 'White Rum', slug: 'white rum', color: '#fefefe' },
-        { name: 'Sugar', slug: 'sugar', color: '#F5DEB3' }
+        { name: 'White Rum', slug: 'white rum', color: '#fefefe' as `#${string}` },
+        { name: 'Sugar', slug: 'sugar', color: '#F5DEB3' as `#${string}` }
       ],
       slug: 'mojito'
     }
@@ -52,18 +51,7 @@ export function Recent({ recentCocktails }: RecentProps) {
       <div className="mx-auto sm:max-w-2xl sm:px-4 pt-5">
         <div className="mb-4 grid grid-cols-2 gap-2 px-4 sm:px-0">
           {FAKErecentCocktails.slice(0, 4).map((example, index) => (
-            <Link
-              key={example.name}
-              className={`cursor-pointer rounded-lg border bg-white p-4 hover:bg-zinc-50 dark:bg-zinc-950 dark:hover:bg-zinc-900 ${
-                index > 1 && 'hidden md:block'
-              }`}
-              href={`/cocktail/${example.slug}`}
-            >
-              <div className="text-sm font-semibold">{example.name}</div>
-              <div className="text-sm text-zinc-600">
-                {example.ingredients.map(({ name }) => name).join(', ')}
-              </div>
-            </Link>
+            <RecentCocktail cocktail={example} index={index} />
           ))}
         </div>
       </div>
