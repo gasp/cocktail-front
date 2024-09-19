@@ -4,6 +4,474 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
+function IconLogo({
+  className,
+  inverted,
+  strokeWidth = 25,
+  ...props
+}: React.ComponentProps<'svg'> & { inverted?: boolean; strokeWidth?: number }) {
+  const strokeColor = inverted ? 'black' : 'white'
+
+  return (
+    <svg
+      viewBox="0 0 620 620"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      {...props}
+    >
+      <path
+        id="outer"
+        fill={inverted ? 'white' : 'black'}
+        stroke={strokeColor}
+        stroke-width={strokeWidth}
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-miterlimit="10"
+        d="
+	M605.467,564.986c0,15.656-12.691,28.346-28.346,28.346H58.381c-15.656,0-28.347-12.689-28.347-28.346V46.247
+	c0-15.656,12.691-28.347,28.347-28.347h518.741c15.654,0,28.346,12.691,28.346,28.347V564.986z"
+      />
+      <g>
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="121.5"
+          y1="78.5"
+          x2="178"
+          y2="135"
+        />
+
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="455.562"
+          y1="78.501"
+          x2="430.564"
+          y2="103.5"
+        />
+
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="178.77"
+          y1="77.232"
+          x2="193.53"
+          y2="91.993"
+        />
+
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="512.627"
+          y1="78.873"
+          x2="457.14"
+          y2="134.36"
+        />
+
+        <rect
+          x="126.5"
+          y="143.5"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="28"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="377"
+          y="85"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="28"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="246"
+          y="86.5"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="30"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="307.5"
+          y="119"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="32"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="511"
+          y="143"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="28"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="514"
+          y="206.5"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="31"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="515"
+          y="297"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="32"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="510"
+          y="368.5"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="28"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="513.5"
+          y="433"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="34"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="509.5"
+          y="500"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="28"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="126"
+          y="532.5"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="28"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="128"
+          y="264"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="28"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="122.5"
+          y="206.5"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="32"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <rect
+          x="121.5"
+          y="321.5"
+          fill="none"
+          stroke={strokeColor}
+          stroke-width="33"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          width="0"
+          height="0"
+        />
+
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="245.5"
+          y1="91"
+          x2="245.5"
+          y2="179"
+        />
+
+        <polyline
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="
+		286,179.5 286,144.5 308.5,121.5 	"
+        />
+
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="196.001"
+          y1="180"
+          x2="439.001"
+          y2="180"
+        />
+
+        <polygon
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="
+		224.5,222 409.501,222 316.5,340 	"
+        />
+        <path
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          d="
+		M347.5,176c0,0,5.5-33,40.5-33s45.5,35,45.5,35"
+        />
+
+        <polyline
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="
+		125,207.5 156.5,207.5 250,330 251,401.5 224,431 	"
+        />
+
+        <polyline
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="
+		212.5,285 185.5,321.5 132,321.5 	"
+        />
+
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="249.5"
+          y1="373"
+          x2="120.5"
+          y2="373"
+        />
+        <path
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          d="
+		M248.207,470.026C245.479,495.594,224.042,515.5,198,515.5c-27.891,0-50.5-22.833-50.5-51c0-25.227,18.136-46.176,41.959-50.274"
+        />
+
+        <polyline
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="
+		512.5,213 486,248 444,249 364,355 413.5,357 445,378.5 508.5,301.5 	"
+        />
+
+        <ellipse
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          cx="390"
+          cy="432.25"
+          rx="22.5"
+          ry="22.75"
+        />
+
+        <ellipse
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          cx="435.035"
+          cy="506.849"
+          rx="21.005"
+          ry="21.239"
+        />
+
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="412.5"
+          y1="432.25"
+          x2="507"
+          y2="432.25"
+        />
+
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="316"
+          y1="337"
+          x2="316.5"
+          y2="530.5"
+        />
+
+        <line
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          x1="272"
+          y1="534"
+          x2="360"
+          y2="534"
+        />
+
+        <polyline
+          fill="none"
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="
+		293.5,530 316.5,510 339.5,529.5 	"
+        />
+
+        <polygon
+          fill={strokeColor}
+          stroke={strokeColor}
+          stroke-width={strokeWidth}
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-miterlimit="10"
+          points="
+		224.5,222 409.501,222 316.5,340 	"
+        />
+      </g>
+    </svg>
+  )
+}
+
 function IconNextChat({
   className,
   inverted,
@@ -306,6 +774,7 @@ export {
   IconArrowRight,
   IconExternalLink,
   IconGitHub,
+  IconLogo,
   IconMoon,
   IconNextChat,
   IconPlus,

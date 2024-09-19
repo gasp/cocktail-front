@@ -5,5 +5,11 @@ export default async function IndexPage() {
   const missingKeys = await getMissingKeys()
   const ingredients = await getIngredients()
 
-  return (<Home missingKeys={missingKeys} className="home" ingredients={ingredients} />)
+  return (
+    <Home
+      missingKeys={missingKeys}
+      className="home"
+      ingredients={ingredients}
+    />
+  )
 }
