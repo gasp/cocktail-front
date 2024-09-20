@@ -2,6 +2,7 @@
 
 import { redirect } from 'next/navigation'
 import { Ingredient } from './types'
+import { colorHighlight } from '@/lib/colors'
 
 export async function refreshHistory(path: string) {
   redirect(path)
@@ -15,7 +16,7 @@ export async function getMissingKeys() {
 }
 
 export async function getIngredients(): Promise<Ingredient[]> {
-  return [
+  const ingredients: Ingredient[] = [
     { name: 'Light rum', slug: 'light-rum', color: '#F2C464' },
     { name: 'Bourbon', slug: 'bourbon', color: '#964B00' },
     { name: 'Vodka', slug: 'vodka', color: '#44A3FC' },
@@ -136,4 +137,10 @@ export async function getIngredients(): Promise<Ingredient[]> {
     { name: 'Coconut cream', slug: 'coconut-cream', color: '#ffffee' }, // added by gasp
     { name: 'White Rum', slug: 'white-rum', color: '#fefefe' } // added by gasp
   ]
+  
+  return ingredients.map(ingredient => ({
+    ...ingredient,
+    highlightedColorLight: colorHighlight(ingredient.color!),
+    highlightedColorDark: colorHighlight(ingredient.color!, true),
+  }))
 }

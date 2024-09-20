@@ -1,7 +1,6 @@
 'use client'
 
 import { Ingredient } from '@/app/types'
-import { applySat } from '@/lib/colors'
 import { useTheme } from 'next-themes'
 
 interface IngredientPillProps extends React.ComponentProps<'div'> {
@@ -18,7 +17,7 @@ export function IngredientPill({
   const { theme } = useTheme() // TODO: this can be optimized and instanciated only once in parent component
   const color = ingredient.color ?? '#add78e6'
   const style = {
-    backgroundColor: applySat(80, color),
+    backgroundColor: theme === 'dark' ? ingredient.highlightedColorDark : ingredient.highlightedColorLight,
     textShadow: `#${theme === 'dark' ? '000' : 'fff'} 1px 0 5px`,
     border: `2px solid ${color}`,
     '--hover-backgroundColor': color,

@@ -5,7 +5,10 @@ export type HexColor = `#${string}`
 export type Ingredient = {
   name: string
   slug: string
+  // TODO: improve typing of those
   color?: HexColor
+  highlightedColorLight?: HexColor
+  highlightedColorDark?: HexColor
 }
 
 export type LocalIngredient = Ingredient & {

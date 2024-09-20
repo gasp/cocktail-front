@@ -1,7 +1,35 @@
-import { HexColor } from '@/app/types'
+export type HexColor = `#${string}`
+/**
+ * @param {number} h - [0-360] hue
+ * @param {number} s - [0-100] saturation
+ * @param {number} l - [0-100] lightness
+ */
+export type HSLColor = Readonly<{
+  h: number
+  s: number
+  l: number
+}>
 
-// https://en.wikipedia.org/wiki/HSL_and_HSV
-export function hexToHSL(hex: HexColor) {
+const clamp = function (n: number, min: number, max: number) {
+  // return Math.min(Math.max(n, min), max)
+  return Math.max(Math.min(n, max), min)
+}
+/**
+ * lerp
+ * @param {float} a - start
+ * @param {float} b - destination
+ * @param {float} t - [0,1] time
+ * @returns {float} position
+ */
+const lerp = (a: number, b: number, t: number): number => (1 - t) * a + t * b
+
+/**
+ * Convers hex to hsl
+ * Based on https://en.wikipedia.org/wiki/HSL_and_HSV
+ * @param {HexColor} hex
+ * @returns {HSLColor}
+ */
+export function convertHexToHSL(hex: HexColor): HSLColor {
   // Convert hex to RGB first
   let r = 0,
     g = 0,
@@ -21,12 +49,12 @@ export function hexToHSL(hex: HexColor) {
   g /= 255
   b /= 255
 
-  let cmin = Math.min(r, g, b),
-    cmax = Math.max(r, g, b),
-    delta = cmax - cmin,
-    h = 0,
-    s = 0,
-    l = 0
+  let cmin = Math.min(r, g, b)
+  let cmax = Math.max(r, g, b)
+  let delta = cmax - cmin
+  let h = 0
+  let s = 0
+  let l = 0
 
   if (delta === 0) h = 0
   else if (cmax === r) h = ((g - b) / delta) % 6
@@ -45,13 +73,32 @@ export function hexToHSL(hex: HexColor) {
   return { h, s, l }
 }
 
-const clamp = function (n: number, min: number, max: number) {
-  return Math.min(Math.max(n, min), max)
+/**
+ * Converts HSL Colors to Hex Colors.
+ * Based on https://en.wikipedia.org/wiki/HSL_and_HSV#HSL_to_RGB_alternative
+ */
+export function convertHSLToHex({ h, s, l }: HSLColor): HexColor {
+
+  const k = (n: number) => (n + h / 30) % 12
+  const a = s/100 * Math.min(l/100, 1 - l/100)
+  const f = (n: number) => l/100 - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1))
+
+  const hex = (n: number) => Math.round(f(n) * 0xff).toString(16).padStart(2, '0').toLowerCase()
+  return `#${hex(0)}${hex(8)}${hex(4)}`
 }
 
-export function applySat(sat: number, color: any) {
-  const { h, s, l } = hexToHSL(color)
-  const newSat = clamp(s + s * sat, 0, 100)
+const DEFAULT_SATURATION = 30
+export function colorHighlight(color: HexColor, darkmode = false) {
+  const { h, s, l } = convertHexToHSL(color)
+  let newLight = l
+  let newSat = s + DEFAULT_SATURATION
+  if (newSat > 100) {
+    // saturation overflows on light
+    const overflow = (newSat - 100)
+    newLight = lerp(newLight, darkmode ? 0 : 100, overflow / 100)
+    console.log(color, 'overflow', {darkmode, newSat, overflow, l, newLight})
+    newSat = 100
+  }
   // css hsl format https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl
-  return `hsl(${h} ${Math.ceil(newSat)}% ${l}%)`
+    return convertHSLToHex({ h, s:newSat, l:newLight })
 }
