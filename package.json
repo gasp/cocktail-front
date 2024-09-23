@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit",
     "format:write": "prettier --write \"{app,lib,components}/**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"{app,lib,components}**/*.{ts,tsx,mdx}\" --cache",
-    "test": "jest --watch",
+    "test": "jest --watchAll",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -54,6 +54,9 @@
     "@storybook/react": "^8.3.1",
     "@storybook/test": "^8.3.1",
     "@tailwindcss/typography": "^0.5.13",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
@@ -67,6 +70,7 @@
     "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-tailwindcss": "^3.14.0",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.39",
     "prettier": "^3.3.2",
     "storybook": "^8.3.1",
@@ -74,6 +78,7 @@
     "tailwindcss": "^3.4.4",
     "tailwindcss-animate": "^1.0.7",
     "ts-jest": "^29.2.4",
+    "ts-node": "^10.9.2",
     "typescript": "^5.5.2"
   }
 }
