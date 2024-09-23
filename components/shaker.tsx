@@ -10,6 +10,12 @@ import { ShakeButton } from './shake-button'
 
 const MIN_INGREDIENTS = 2
 
+const toSlug = (ingredients: Ingredient[]) =>
+  ingredients
+    .map(({ slug }) => slug)
+    .sort()
+    .join('_')
+
 type ShakerProps = {
   ingredients: Ingredient[]
   onClear: () => void
@@ -40,14 +46,8 @@ export function Shaker({ ingredients, onClear }: ShakerProps) {
   socket.on('message-cocktail', (cocktail: Cocktail) => {
     // it's async, is this the cocktail we are looking for ?
     if (!ingredients || !cocktail.ingredients) return
-    const currentIngredientsSlug = ingredients
-      .map(({ slug }) => slug)
-      .sort()
-      .join('_')
-    const incomingIngredientsSlug = cocktail.ingredients
-      .map(({ slug }) => slug)
-      .sort()
-      .join('_')
+    const currentIngredientsSlug = toSlug(ingredients)
+    const incomingIngredientsSlug = toSlug(cocktail.ingredients)
 
     if (incomingIngredientsSlug === currentIngredientsSlug) {
       setLoading(false)
