@@ -19,6 +19,7 @@ export function IngredientPill({
   const color = ingredient.color ?? '#add78e6'
   const style = {
     backgroundColor: applySat(80, color),
+    color: `#${theme === 'dark' ? '000' : 'fff'} 1px 0 5px`,
     textShadow: `#${theme === 'dark' ? '000' : 'fff'} 1px 0 5px`,
     border: `2px solid ${color}`,
     '--hover-backgroundColor': color,

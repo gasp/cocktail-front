@@ -74,9 +74,6 @@ describe('IngredientsFinder', () => {
     expect(mockHandleClick).toHaveBeenCalledWith(ingredients[0]);
   })
 
-
-
-
   it('returns the only element when [Enter] is pressed', () => {
     const mockHandleClick = jest.fn()
     render(
@@ -99,8 +96,4 @@ describe('IngredientsFinder', () => {
     fireEvent.submit(inputElement)
     expect(mockHandleClick).toHaveBeenCalledWith(ingredients[2]);
   })
-
-
-
-
 })
