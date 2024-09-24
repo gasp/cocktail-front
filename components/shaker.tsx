@@ -39,8 +39,10 @@ export function Shaker({ ingredients, onClear }: ShakerProps) {
     // add to local storage
     addLocalIngredient(ingredients)
     // launch image generation if needed
-    if (!cocktail?.image) socket.emit('generate-image', cocktail)
-    else router.push(`/cocktail/${cocktail.slug}`)
+    if (!cocktail?.image) {
+      socket.emit('generate-image', cocktail)
+      router.push(`/shake/`)
+    } else router.push(`/cocktail/${cocktail.slug}`)
   }
 
   socket.on('message-cocktail', (cocktail: Cocktail) => {

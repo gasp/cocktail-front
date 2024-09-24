@@ -23,8 +23,8 @@ export function IngredientsFinder({
     const fuseSingleton = new Fuse(ingredients, {
       keys: ['slug'],
       minMatchCharLength: 2,
-      threshold: 0.0001,
-      distance: 10
+      threshold: 0.4,
+      // distance: 10
     })
     setFuseInstance(fuseSingleton)
   }, [ingredients])

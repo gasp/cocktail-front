@@ -6,7 +6,9 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: (a, b) =>
-        a.id === b.id ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true }),
+        a.id === b.id
+          ? 0
+          : a.id.localeCompare(b.id, undefined, { numeric: true })
     },
     layout: 'centered', // 'fullscreen' | 'centered' | 'padded'
     viewport: {
@@ -70,7 +72,7 @@ const preview: Preview = {
         </main>
       </>
     )
-  ],
+  ]
 }
 
 export default preview
